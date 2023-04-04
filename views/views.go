@@ -11,6 +11,7 @@ type Template struct {
 }
 
 func (t *Template) Execute(w http.ResponseWriter, data interface{}) {
+	w.Header().Set("Content-Type", "text/html; charset=utf-8")
 	err := t.html.Execute(w, data)
 
 	if err != nil {
