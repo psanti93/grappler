@@ -19,6 +19,9 @@ func main() {
 
 	r.Get("/signup", controller.StaticController(tmpl))
 
+	tmpl = views.Must(views.Parse(templates.FS, "contact.gohtml"))
+	r.Get("/contact", controller.StaticController(tmpl))
+
 	tmpl = views.Must(views.Parse(templates.FS, "faq.gohtml"))
 	r.Get("/faq", controller.FAQ(tmpl))
 
