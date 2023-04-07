@@ -16,7 +16,6 @@ func main() {
 	r.Get("/", controller.StaticController(tmpl))
 
 	tmpl = views.Must(views.Parse(templates.FS, "signup.gohtml"))
-
 	r.Get("/signup", controller.StaticController(tmpl))
 
 	tmpl = views.Must(views.Parse(templates.FS, "contact.gohtml"))
@@ -28,5 +27,6 @@ func main() {
 	r.NotFound(func(w http.ResponseWriter, r *http.Request) {
 		http.Error(w, "Not found", http.StatusNotFound)
 	})
+
 	http.ListenAndServe(":3000", r)
 }
