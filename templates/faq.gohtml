@@ -2,9 +2,9 @@
 
 <ul>{{range .}}
     {{template "qa" .}}
-    {{end}}}
+    {{end}}
 </ul>
 
 {{define "qa"}}
-    <li><b>{{.Question}}</b>{{.Answer}}</li>
+    <li><b>{{.Question}}:</b> {{.Answer}}</li>
 {{end}}
