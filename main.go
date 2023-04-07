@@ -34,7 +34,7 @@ func executeTemplate(w http.ResponseWriter, filePath string) {
 func main() {
 	r := chi.NewRouter()
 	r.Get("/", homePage)
-	r.Get("/signUp", signUpPage)
+	r.Get("/signup", signUpPage)
 	r.NotFound(func(w http.ResponseWriter, r *http.Request) {
 		http.Error(w, "Not found", http.StatusNotFound)
 	})
