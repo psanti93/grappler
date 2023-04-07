@@ -10,6 +10,15 @@ type Template struct {
 	html *template.Template
 }
 
+func Must(t *Template, err error) *Template {
+	if err != nil {
+		fmt.Errorf("Template failed %v", err)
+		panic(err)
+	}
+	return t
+
+}
+
 func (t *Template) Execute(w http.ResponseWriter, data interface{}) {
 	w.Header().Set("Content-Type", "text/html; charset=utf-8")
 	err := t.html.Execute(w, data)
