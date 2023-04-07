@@ -16,7 +16,6 @@ func main() {
 	r.Get("/", controller.StaticController(tmpl))
 
 	tmpl = views.Must(views.Parse(templates.FS, "signup.gohtml"))
-
 	r.Get("/signup", controller.StaticController(tmpl))
 
 	tmpl = views.Must(views.Parse(templates.FS, "contact.gohtml"))
