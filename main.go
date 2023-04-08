@@ -26,8 +26,8 @@ func main() {
 	})
 
 	var usersC controller.User
-	// views returns type Template which reflects the Renderer interface in the controllers package
-	usersC.New = views.Must(views.Parse(templates.FS, "signup.gohtml", "tailwind.gohtml"))
+	// views returns type Template which reflects the Renderer interface in the controllers package and assigns to Render of type rendere interface
+	usersC.Render = views.Must(views.Parse(templates.FS, "signup.gohtml", "tailwind.gohtml"))
 
 	r.Get("/signup", usersC.NewUser)
 

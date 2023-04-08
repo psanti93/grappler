@@ -5,9 +5,9 @@ import (
 )
 
 type User struct {
-	New Renderer
+	Render Renderer
 }
 
 func (u *User) NewUser(w http.ResponseWriter, r *http.Request) {
-	u.New.Execute(w, nil)
+	u.Render.Execute(w, nil)
 }
