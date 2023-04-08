@@ -14,6 +14,7 @@ type FormData struct {
 }
 
 func (u *User) NewUser(w http.ResponseWriter, r *http.Request) {
+	// run http://localhost:3000/signup?email=user@gmail.com to pre-populate email
 	form := &FormData{
 		Email: r.FormValue("email"),
 	}
