@@ -30,6 +30,7 @@ func main() {
 	usersC.Render = views.Must(views.Parse(templates.FS, "signup.gohtml", "tailwind.gohtml"))
 
 	r.Get("/signup", usersC.NewUser)
+	r.Post("/signup", usersC.CreateUser)
 
 	http.ListenAndServe(":3000", r)
 }
