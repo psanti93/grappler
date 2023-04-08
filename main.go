@@ -15,9 +15,6 @@ func main() {
 	tmpl := views.Must(views.Parse(templates.FS, "home.gohtml", "tailwind.gohtml"))
 	r.Get("/", controller.StaticController(tmpl))
 
-	tmpl = views.Must(views.Parse(templates.FS, "signup.gohtml", "tailwind.gohtml"))
-	r.Get("/signup", controller.StaticController(tmpl))
-
 	tmpl = views.Must(views.Parse(templates.FS, "contact.gohtml", "tailwind.gohtml"))
 	r.Get("/contact", controller.StaticController(tmpl))
 
@@ -27,6 +24,12 @@ func main() {
 	r.NotFound(func(w http.ResponseWriter, r *http.Request) {
 		http.Error(w, "Not found", http.StatusNotFound)
 	})
+
+	var usersC controller.User
+
+	usersC.New = views.Must(views.Parse(templates.FS, "signup.gohtml", "tailwind.gohtml"))
+
+	r.Get("/signup", usersC.NewUser)
 
 	http.ListenAndServe(":3000", r)
 }
