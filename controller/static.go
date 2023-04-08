@@ -7,6 +7,14 @@ import (
 	"github.com/psanti93/grappler/views"
 )
 
+type Static struct {
+	New Renderer
+}
+
+func (s *Static) ServeHTTP(w http.ResponseWriter, r *http.Request) {
+	s.New.Execute(w, nil)
+}
+
 func StaticController(t *views.Template) http.HandlerFunc {
 
 	return func(w http.ResponseWriter, r *http.Request) {

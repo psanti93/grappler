@@ -2,12 +2,10 @@ package controller
 
 import (
 	"net/http"
-
-	"github.com/psanti93/grappler/views"
 )
 
 type User struct {
-	New *views.Template
+	New Renderer
 }
 
 func (u *User) NewUser(w http.ResponseWriter, r *http.Request) {
