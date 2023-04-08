@@ -20,6 +20,7 @@ func Must(t *Template, err error) *Template {
 
 }
 
+// Template reflects the Execute function of the Renderer interface
 func (t *Template) Execute(w http.ResponseWriter, data interface{}) {
 	w.Header().Set("Content-Type", "text/html; charset=utf-8")
 	err := t.html.Execute(w, data)
